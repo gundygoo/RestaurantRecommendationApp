@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_camActivity"
+        android:title="Camera Activity"
+        android:orderInCategory="0" />
+
+    <item android:id="@+id/action_foodDetail"
+        android:title="Food Detail"
+        android:orderInCategory="1" />
+
+    <item android:id="@+id/action_restDetailActivity"
+        android:title="Restaurant Detail"
+        android:orderInCategory="2" />
+
+    <item android:id="@+id/action_restListActivity"
+        android:title="Restaurant List"
+        android:orderInCategory="3" />
+
+    <item android:id="@+id/action_mainActivity"
+        android:title="Main Activity"
+        android:orderInCategory="4" />
+
+</menu>

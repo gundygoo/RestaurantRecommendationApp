@@ -3,14 +3,20 @@ package com.oudersonsstudios.restaurantrecommendations.Activities;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.view.ActionProvider;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.oudersonsstudios.restaurantrecommendations.CameraUtils.CameraPreview;
 import com.oudersonsstudios.restaurantrecommendations.R;
+import com.oudersonsstudios.restaurantrecommendations.Utils.HandleMenu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,6 +30,7 @@ public class CameraActivity extends AppCompatActivity{
     private CameraPreview mPreview;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
+    private ActionProvider mActionProvider;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +38,10 @@ public class CameraActivity extends AppCompatActivity{
         setContentView(R.layout.cam_preview_layout);
 
         // Create an instance of Camera
-        mCamera = getCameraInstance();
+        if (mCamera == null){
+            mCamera = getCameraInstance();
+        }
+
 
         // Create our Preview view and set it as the content of our activity.
         mPreview = new CameraPreview(this, mCamera);
@@ -49,6 +59,28 @@ public class CameraActivity extends AppCompatActivity{
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_toolbar_menu, menu);
+
+        MenuItem shareItem = menu.findItem(R.menu.main_toolbar_menu);
+
+        // To retrieve the Action Provider
+        mActionProvider = (ShareActionProvider)
+                MenuItemCompat.getActionProvider(shareItem);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (!HandleMenu.onOMenuItemSelected(item, this)) {
+            return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
     /** A safe way to get an instance of the Camera object. */
@@ -91,7 +123,7 @@ public class CameraActivity extends AppCompatActivity{
         // using Environment.getExternalStorageState() before doing this.
 
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "MyCameraApp");
+                Environment.DIRECTORY_PICTURES), "RestaurantRecommendations");
         // This location works best if you want the created images to be shared
         // between applications and persist after your app has been uninstalled.
 
