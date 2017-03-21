@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/foodDetailToolbar" />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
