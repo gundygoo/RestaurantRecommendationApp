@@ -9,13 +9,14 @@ public class Food {
     private Picture picture;
     private String price;
     private String description;
+    private String restaurant;
 
-    public Food(String name, Picture picture, String description, String price) {
-
+    public Food(String name, Picture picture, String price, String description, String restaurant) {
         this.name = name;
         this.picture = picture;
-        this.description = description;
         this.price = price;
+        this.description = description;
+        this.restaurant = restaurant;
     }
 
     public String getName() {
@@ -34,6 +35,10 @@ public class Food {
         return description;
     }
 
+    public String getRestaurant() {
+        return restaurant;
+    }
+
     public void updatePrice(String newPrice){
         price = newPrice;
     }
@@ -48,5 +53,9 @@ public class Food {
 
     public void updatePicture(Picture newPicture){
         picture = newPicture;
+    }
+
+    public void updateRestaurant(String newRestaurant) {
+        restaurant = newRestaurant;
     }
 }

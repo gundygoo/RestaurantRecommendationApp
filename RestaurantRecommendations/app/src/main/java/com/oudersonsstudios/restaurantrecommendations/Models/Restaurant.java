@@ -1,6 +1,5 @@
 package com.oudersonsstudios.restaurantrecommendations.Models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +14,7 @@ public class Restaurant {
     private Picture picture;
 
     public Restaurant(List<Food> foodEntries, String name, String description, String address, String foodType, Picture picture) {
-        this.foodEntries = new ArrayList<Food>();
+        this.foodEntries = foodEntries;
         this.name = name;
         this.description = description;
         this.address = address;
@@ -45,6 +44,10 @@ public class Restaurant {
 
     public Picture getPicture() {
         return picture;
+    }
+
+    public void updateFoodEntryList(List<Food> newFoodEntries){
+        foodEntries = newFoodEntries;
     }
 
     public void updateName(String newName) {
