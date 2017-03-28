@@ -13,6 +13,13 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="459dp"
         android:id="@+id/restaurantListView" />
+
+    <Button
+        android:text="New Restaurant"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/newRestaurantButton"
+        android:layout_gravity="right" />
 </LinearLayout>

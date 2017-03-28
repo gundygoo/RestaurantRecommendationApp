@@ -1,5 +1,7 @@
 package com.oudersonsstudios.restaurantrecommendations.Activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Environment;
@@ -41,7 +43,6 @@ public class CameraActivity extends AppCompatActivity{
         if (mCamera == null){
             mCamera = getCameraInstance();
         }
-
 
         // Create our Preview view and set it as the content of our activity.
         mPreview = new CameraPreview(this, mCamera);
@@ -115,8 +116,15 @@ public class CameraActivity extends AppCompatActivity{
             } catch (IOException e) {
                 Log.d("could not find ", "Error accessing file: " + e.getMessage());
             }
+
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("imagePath", pictureFile.getAbsolutePath());
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
         }
     };
+
+
 
     private static File getOutputMediaFile(int type){
         // To be safe, you should check that the SDCard is mounted

@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <EditText
         android:layout_width="match_parent"
@@ -10,39 +11,45 @@
         android:inputType="textPersonName"
         android:text="Restaurant Name"
         android:ems="10"
-        android:id="@+id/restaurantDetailEditText"
+        android:id="@+id/restaurantNameEditText"
         android:textAppearance="@android:style/TextAppearance.Material.Headline" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/imageView" />
+        android:id="@+id/restaurantImageButton"
+        android:layout_height="250dip" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/restaurantDescriptionEditText" />
+        android:id="@+id/restaurantDescriptionEditText"
+        android:hint="Restaurant Description" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
         android:ems="10"
-        android:id="@+id/restaurantAddressEditText" />
+        android:id="@+id/restaurantAddressEditText"
+        android:hint="Restaurant Address" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
-        android:id="@+id/restaurantGenreEditText" />
+        android:id="@+id/restaurantGenreEditText"
+        android:hint="Restaurant Food Type" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/restaurantFoodListView" />
+    <Button
+        android:text="Save"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveButton"
+        android:textAlignment="center"
+        android:layout_gravity="bottom|right" />
+
 </LinearLayout>
