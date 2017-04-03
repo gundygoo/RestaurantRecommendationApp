@@ -11,4 +11,6 @@ public class Constants {
     public static final String RESTAURANT_PICTURE_STRING = "restaurant_picture";
 
     public static final String STORAGE_FILENAME = "DATA_STORAGE.txt";
+
+    public static final String RESTAURANT_NAME = "restaurant_name";
 }

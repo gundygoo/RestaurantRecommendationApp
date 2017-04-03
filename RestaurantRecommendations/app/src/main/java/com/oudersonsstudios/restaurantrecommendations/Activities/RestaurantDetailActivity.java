@@ -3,9 +3,7 @@ package com.oudersonsstudios.restaurantrecommendations.Activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v4.view.ActionProvider;
 import android.support.v4.view.MenuItemCompat;
@@ -48,6 +46,25 @@ public class RestaurantDetailActivity extends AppCompatActivity {
 
         Button saveButton = (Button) findViewById(R.id.saveButton);
         imageButton = (ImageButton) findViewById(R.id.restaurantImageButton);
+
+        if (getIntent().hasExtra("showing_details") && getIntent().getBooleanExtra("showing_details", false)){
+            restaurantName.setText(getIntent().getStringExtra("restaurant_name"));
+            restaurantPicture = new Picture("RESTAURANTPICTURE", getIntent().getStringExtra("restaurant_picture_path"));
+            imageButton.setImageBitmap(BitmapFactory.decodeFile(restaurantPicture.getImagePath()));
+
+            EditText restaurantAddress = (EditText) findViewById(R.id.restaurantAddressEditText);
+            restaurantAddress.setText(getIntent().getStringExtra("restaurant_address"));
+
+            EditText restaurantDescription = (EditText) findViewById(R.id.restaurantDescriptionEditText);
+            restaurantDescription.setText(getIntent().getStringExtra("restaurant_description"));
+
+            EditText restaurantGenre = (EditText) findViewById(R.id.restaurantGenreEditText);
+            restaurantGenre.setText(getIntent().getStringExtra("restaurant_genre"));
+
+            saveButton.setVisibility(View.INVISIBLE);
+
+            return;
+        }
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
